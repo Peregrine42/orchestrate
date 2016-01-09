@@ -1,0 +1,28 @@
+<h2>order for: <%= @order.name %></h2>
+<div>
+  <h3>status: <%= @order.status %></h3>
+  <h3>address:</h3>
+  <p><%= @order.address_line_1 %></p>
+  <p><%= @order.address_line_2 %></p>
+  <p><%= @order.address_line_3 %></p>
+  <p><%= @order.postcode %></p>
+</div>
+<div>
+  <%= link_to "add product", new_order_line_path(@order) %>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>product name</th>
+      <th>quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.lines.each do |line| %>
+    <tr>
+      <td><%= line.product.name %></td>
+      <td><%= line.quantity %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

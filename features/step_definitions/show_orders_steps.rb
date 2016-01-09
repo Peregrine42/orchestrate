@@ -1,7 +1,10 @@
 Given /there are pending orders in the database/ do
-  @orders = ["Joe", "Duncan", "Nicolas"].each do |name|
-    Order.create(
-      name: name, address: "somewhere", postcode: "co111sf", status: "pending"
+  @orders = ["Joe", "Duncan", "Nicolas"].each do |first_name|
+    Order.create!(
+      first_name: first_name,
+      address_line_1: "somewhere",
+      postcode: "co111sf",
+      status: "pending"
     )
   end
 end
