@@ -1,19 +1,20 @@
-<%= link_to "create", new_order_path %>
-<table>
-  <tr>
-    <th>order for</th>
-    <th>status</th>
-    <th>address...</th>
-    <th>postcode</th>
-    <th>including...</th>
-  </tr>
-  <% @orders.each do |order| %>
+<%= link_to "create", new_order_path, class: "btn btn-primary" %>
+<% @orders.each do |order_group| %>
+  <h2><%= order_group[0].status %></h2>
+  <table class="table table-striped">
     <tr>
-      <td><a href="<%= url_for(order) %>"><%= order.name %>             </a></td>
-      <td><a href="<%= url_for(order) %>"><%= order.status %>           </a></td>
-      <td><a href="<%= url_for(order) %>"><%= order.truncated_address %></a></td>
-      <td><a href="<%= url_for(order) %>"><%= order.postcode %>         </a></td>
-      <td><a href="<%= url_for(order) %>"><%= order.including %>        </a></td>
+      <th>order for</th>
+      <th>address...</th>
+      <th>postcode</th>
+      <th>including...</th>
     </tr>
-  <% end %>
-</table>
+    <% order_group.each do |order| %>
+      <tr>
+        <td><a href="<%= url_for(order) %>"><%= order.name %>             </a></td>
+        <td><a href="<%= url_for(order) %>"><%= order.truncated_address %></a></td>
+        <td><a href="<%= url_for(order) %>"><%= order.postcode %>         </a></td>
+        <td><a href="<%= url_for(order) %>"><%= order.including %>        </a></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

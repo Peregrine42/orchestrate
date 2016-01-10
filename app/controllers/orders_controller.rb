@@ -8,7 +8,10 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @pending_orders = Order.where(status: "pending")
+    @confirmed_orders = Order.where(status: "confirmed")
+    @dispatched_orders = Order.where(status: "dispatched")
+    @orders = [@pending_orders, @confirmed_orders, @dispatched_orders].compact
   end
 
   def create

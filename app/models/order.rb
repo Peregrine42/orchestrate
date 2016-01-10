@@ -1,6 +1,10 @@
 class Order < ActiveRecord::Base
   has_many :lines
 
+  def unarchived_lines
+    lines.where(archived: false)
+  end
+
   def name
     [first_name, last_name].compact.join " "
   end
@@ -11,8 +15,8 @@ class Order < ActiveRecord::Base
   end
 
   def including
-    including_line = lines.map(&:name).join(", ")
-    including_line.length > 0 ? including_line[0..15] + "..." : ""
+    including_line = unarchived_lines.map(&:name).join(", ")
+    including_line.length > 15 ? including_line[0..15] + "..." : including_line
   end
 
   def available_statuses

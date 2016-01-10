@@ -5,6 +5,11 @@ class LinesController < ApplicationController
     @line.order = @order
   end
 
+  def edit
+    @order = Order.find(params[:order_id])
+    @line = Line.find(params[:id])
+  end
+
   def create
     @order = Order.find(params[:order_id])
     @line = Line.new(line_params)
@@ -23,8 +28,15 @@ class LinesController < ApplicationController
     redirect_to @order
   end
 
+  def update
+    @order = Order.find(params[:order_id])
+    @line = Line.find(params[:id])
+    @line.update(line_params)
+    redirect_to @order
+  end
+
   private
   def line_params
-    params.require(:line).permit(:quantity, :product_id)
+    params.require(:line).permit(:quantity, :product_id, :archived)
   end
 end

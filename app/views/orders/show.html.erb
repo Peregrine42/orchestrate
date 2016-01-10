@@ -1,3 +1,4 @@
+<%= link_to "all orders", orders_path, class: "btn btn-info" %>
 <h2>order for: <%= @order.name %></h2>
 <div>
   <h3><%= @order.status %></h3>
@@ -10,10 +11,10 @@
   </p>
 </div>
 <div>
-  <%= link_to "edit order", edit_order_path(@order) %>
-  <%= link_to "add product", new_order_line_path(@order) %>
+  <%= link_to "edit order", edit_order_path(@order), class: "btn btn-info" %>
+  <%= link_to "add product", new_order_line_path(@order), class: "btn btn-success" %>
 </div>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>product name</th>
@@ -21,13 +22,17 @@
     </tr>
   </thead>
   <tbody>
-    <% @order.lines.each do |line| %>
+    <% @order.unarchived_lines.each do |line| %>
     <tr>
       <td><%= line.product.name %></td>
       <td><%= line.quantity %></td>
+      <td><%= link_to "edit", edit_order_line_path(@order, line) %></td>
       <td>
-        <form action="<%= order_line_path(@order, line) %>" method="delete" if-match="*">
-          <input type="submit" value="delete" method="delete"/>
+        <form action="<%= order_line_path(@order, line) %>" method="post">
+          <input type="hidden" name="_method" value="patch"/>
+          <input type="hidden" name="line[archived]" value="true"/>
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+          <input type="submit" value="delete <%= line.name %>" class="btn btn-danger"/>
         </form>
       </td>
     </tr>

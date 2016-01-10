@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109225715) do
+ActiveRecord::Schema.define(version: 20160110142626) do
 
   create_table "lines", force: true do |t|
     t.datetime "created_at"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160109225715) do
     t.integer  "quantity"
     t.integer  "product_id"
     t.integer  "order_id"
+    t.boolean  "archived"
   end
 
   create_table "orders", force: true do |t|
