@@ -26,8 +26,9 @@
       <td><%= line.product.name %></td>
       <td><%= line.quantity %></td>
       <td>
-        <%= link_to "delete " + line.product.name,
-            order_line_path(@order, line), method: :delete %>
+        <form action="<%= order_line_path(@order, line) %>" method="delete" if-match="*">
+          <input type="submit" value="delete" method="delete"/>
+        </form>
       </td>
     </tr>
     <% end %>

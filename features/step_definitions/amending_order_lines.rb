@@ -8,5 +8,6 @@ When(/^I click '([\w ]+)' beside '([\w ]+)'$/) do |target, product|
 end
 
 Then(/^the '([\w ]+)' no longer appears on the pending order$/) do |product|
+  expect(page.body).to have_content(@order.first_name)
   expect(page.body).to_not have_content("saxophone")
 end

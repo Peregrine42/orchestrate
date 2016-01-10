@@ -1,3 +1,7 @@
+require "database_cleaner"
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean!
+
 Order.create(
   first_name: "Duncan",
   last_name: "Fermor",

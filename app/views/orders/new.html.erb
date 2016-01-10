@@ -3,12 +3,14 @@
   <%= f.input :last_name, label: "last name" %>
   <%= f.input :status, label: "status", collection: ["pending"], default: "pending" %>
 
-  <label for="order_address">address</label>
-  <div class="form-group indent20">
-    <%= f.input :address_line_1, label: "line 1" %>
-    <%= f.input :address_line_2, label: "line 2" %>
-    <%= f.input :address_line_3, label: "line 3" %>
-    <%= f.input :postcode, label: "postcode" %>
-  </div>
+  <fieldset class="form-group">
+    <legend>address</legend>
+    <div class="indent20">
+      <%= f.input :address_line_1, label: "line 1" %>
+      <%= f.input :address_line_2, label: "line 2" %>
+      <%= f.input :address_line_3, label: "line 3" %>
+      <%= f.input :postcode, label: "postcode" %>
+    </div>
+  </fieldset>
   <%= f.button :submit, value: "create order" %>
 <% end %>
