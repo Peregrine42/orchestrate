@@ -5,4 +5,8 @@ class Line < ActiveRecord::Base
     current_product_ids = order.lines.pluck(:product_id)
     Product.where.not(id: current_product_ids)
   end
+
+  def name
+    product.name
+  end
 end

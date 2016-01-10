@@ -8,6 +8,7 @@
   <p><%= @order.postcode %></p>
 </div>
 <div>
+  <%= link_to "edit order", edit_order_path(@order) %>
   <%= link_to "add product", new_order_line_path(@order) %>
 </div>
 <table>

@@ -5,7 +5,7 @@ Given /^there is stock in the database$/ do
   @other_stock =  Stock.create! amount: 4, product: @undesired_product
 end
 
-When /^I click the '([\w ]+)' button$/ do |button_name|
+When /^I click '([\w ]+)'$/ do |button_name|
   click_on button_name
 end
 

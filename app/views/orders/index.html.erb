@@ -1,17 +1,19 @@
 <%= link_to "create", new_order_path %>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Address...</th>
-    <th>Postcode</th>
+    <th>order for</th>
+    <th>status</th>
+    <th>address...</th>
+    <th>postcode</th>
+    <th>including...</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
-      <td><%= order.name %></td>
-      <td><%= order.status %></td>
-      <td><%= order.truncated_address %></td>
-      <td><%= order.postcode %></td>
+      <td><a href="<%= url_for(order) %>"><%= order.name %>             </a></td>
+      <td><a href="<%= url_for(order) %>"><%= order.status %>           </a></td>
+      <td><a href="<%= url_for(order) %>"><%= order.truncated_address %></a></td>
+      <td><a href="<%= url_for(order) %>"><%= order.postcode %>         </a></td>
+      <td><a href="<%= url_for(order) %>"><%= order.including %>        </a></td>
     </tr>
   <% end %>
 </table>

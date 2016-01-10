@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def edit
+    @order = Order.find(params[:id])
+  end
+
   def index
     @orders = Order.all
   end
@@ -17,7 +21,16 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(params[:id])
+    @order = Order.find(params[:id])
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    if @order.update(order_params)
+      redirect_to @order
+    else
+      render :edit
+    end
   end
 
   private
