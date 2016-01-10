@@ -16,6 +16,13 @@ class LinesController < ApplicationController
     end
   end
 
+  def destroy
+    @order = Order.find(params[:order_id])
+    @line = Line.find(params[:id])
+    @line.destroy
+    redirect_to @order
+  end
+
   private
   def line_params
     params.require(:line).permit(:quantity, :product_id)
