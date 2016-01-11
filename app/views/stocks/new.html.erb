@@ -1,4 +1,4 @@
-<%= link_to "back to stock", "/stocks", class: "btn btn-info" %>
+<%= link_to "back to stock", "/stocks", class: "btn btn-info btn-main-menu" %>
 <h2>new stock update</h2>
 <%= simple_form_for @stock do |f| %>
   <%= f.input :product_id, label: "product", collection: @products %>

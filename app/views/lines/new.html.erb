@@ -1,5 +1,6 @@
-<%= link_to "back to order", order_path(@order), class: "btn btn-info" %>
+<%= link_to "back to order", order_path(@order), class: "btn btn-info btn-main-menu" %>
 <br/>
+<h1>new order line</h1>
 <br/>
 <%= simple_form_for [@order, @line] do |f| %>
   <%= f.input :product_id, label: "product", :collection => @line.possible_products, :as => :select%>

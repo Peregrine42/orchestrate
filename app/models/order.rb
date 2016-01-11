@@ -9,11 +9,11 @@ class Order < ActiveRecord::Base
   validates :postcode, presence: true
   
   def self.unarchived
-    where(archived: false)
+    where(archived: false).order(created_at: :desc)
   end
   
   def self.archived
-    where(archived: true)
+    where(archived: true).order(created_at: :desc)
   end
   
   def self.format_time time

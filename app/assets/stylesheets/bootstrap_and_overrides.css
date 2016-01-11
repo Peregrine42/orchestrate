@@ -13,13 +13,17 @@
 }
 
 /* 
-http://stackoverflow.com/questions/18585575/\
+http://stackoverflow.com/questions/18585575/
 bootstrap-classes-to-indent-sub-fields-in-a-form 
 */
 .indent20 {
   margin-left: 20px;
 }
 
+/*
+http://stackoverflow.com/
+questions/30234986/watermark-background-images-in-div
+*/
 .watermark {
   width: 512px;
   height: 512px;
@@ -28,10 +32,55 @@ bootstrap-classes-to-indent-sub-fields-in-a-form
   background:url(trumpet-rotated.png);
   z-index: -1; 
   bottom: 0;
-  right: 0;
+  right: -30px;
   opacity: 0.2;
 }
 
 .table-striped>tbody>tr:nth-child(even) {
-    background-color: #f9f4f4;
+    background-color: #ffffff;
+}
+
+.btn-main-menu {
+  border-top-left-radius: 20px;
+  height: 50px;
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #e4e4ee;
+}
+
+h2 {
+  font-size: 30px;
+  color: #e4e4ee;
+}
+
+label {
+  color: #e4e4ee;
+}
+
+.help-block {
+  color: #93939d;
+}
+
+hr { 
+  height: 1px; 
+  background: #7779a6;
+  color: #7779a6;
+  border-top: 0px;
+}
+
+table {
+  border-color: #7779a6;
+  border-width: 1px;
+}
+
+th {
+  border: 0px;
+  background-color: rgb(66, 139, 202);
+}
+
+body {
+  background-color: #424359;
 }
