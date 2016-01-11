@@ -4,6 +4,10 @@ class Order < ActiveRecord::Base
   def unarchived_lines
     lines.where(archived: false)
   end
+  
+  def archived_lines
+    lines.where(archived: true)
+  end
 
   def name
     [first_name, last_name].compact.join " "

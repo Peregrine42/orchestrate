@@ -1,3 +1,4 @@
+<h1>Orders</h1>
 <%= link_to "create", new_order_path, class: "btn btn-primary" %>
 <% @orders.each do |order_group| %>
   <h2><%= order_group[0].status %></h2>
