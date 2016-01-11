@@ -3,7 +3,9 @@ Given(/^there is a pending order for '([\w ]+)' in the database$/) do |name|
   @order = Order.create!(
     first_name: first_name, 
     last_name: last_name,
-    status: "pending"
+    status: "pending",
+    postcode: "abc123",
+    address_line_1: "somewhere"
   )
 end
 
@@ -18,7 +20,9 @@ Given(/^there is an archived order for '([\w ]+)' in the database$/) do |name|
     first_name: first_name, 
     last_name: last_name,
     status: "pending",
-    archived: true
+    archived: true,
+    postcode: "abc123",
+    address_line_1: "somewhere"
   )
 end
 

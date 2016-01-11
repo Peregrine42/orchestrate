@@ -4,7 +4,10 @@ Given /there are pending orders in the database/ do
       first_name: first_name,
       address_line_1: "somewhere",
       postcode: "co111sf",
-      status: "pending"
+      status: "pending",
+      last_name: "blah",
+      postcode: "foo",
+      address_line_1: "somewhere"
     )
   end
 end

@@ -7,24 +7,26 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-/* http://stackoverflow.com/questions/18585575/\
-bootstrap-classes-to-indent-sub-fields-in-a-form */
+/* 
+http://stackoverflow.com/questions/18585575/\
+bootstrap-classes-to-indent-sub-fields-in-a-form 
+*/
 .indent20 {
   margin-left: 20px;
 }
 
+/*
+https://getbootstrap.com/examples/sticky-footer/
+*/
 html {
-  position: relative;
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
 }

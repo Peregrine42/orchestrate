@@ -1,6 +1,6 @@
 Given(/^the pending order has a line for a '([\w ]+)'$/) do |product_name|
   product = Product.create!(name: product_name)
-  Line.create!(product: product, order: @order)
+  Line.create!(product: product, order: @order, quantity: 1)
 end
 
 When(/^I click "([\w ]+)" beside "([\w ']+)"$/) do |target, product|

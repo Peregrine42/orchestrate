@@ -1,5 +1,7 @@
 Given(/^there is a pending order in the database$/) do
-  @order = Order.create!(first_name: "Duncan", status: "pending")
+  @order = Order.create!(
+    first_name: "Duncan", status: "pending",
+    last_name: "Fermor", address_line_1: "somewhere", postcode: "abc123")
 end
 
 When(/^I visit the show page for that order$/) do
