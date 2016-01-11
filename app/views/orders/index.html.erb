@@ -1,4 +1,6 @@
-<%= link_to "archived orders", archived_orders_path, class: "btn btn-warning" %>
+<% if @archived_orders.length > 0 %>
+  <%= link_to "archived orders", archived_orders_path, class: "btn btn-warning" %>
+<% end %>
 <h1>orders</h1>
 <%= link_to "create", new_order_path, class: "btn btn-primary" %>
 <% @orders.each do |order_group| %>

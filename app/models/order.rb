@@ -2,6 +2,12 @@ class Order < ActiveRecord::Base
   has_many :lines
   after_initialize :init
   
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :status, presence: true
+  validates :address_line_1, presence: true
+  validates :postcode, presence: true
+  
   def self.unarchived
     where(archived: false)
   end

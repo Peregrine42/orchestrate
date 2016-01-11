@@ -3,6 +3,9 @@ class Line < ActiveRecord::Base
   belongs_to :product
 
   after_initialize :init
+  
+  validates :product_id, presence: true
+  validates :quantity, presence: true, numericality: { only_integer: true }
 
   def init
     self.archived ||= false

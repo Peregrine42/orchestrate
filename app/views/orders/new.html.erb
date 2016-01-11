@@ -3,8 +3,6 @@
 <%= simple_form_for @order do |f| %>
   <%= f.input :first_name, label: "first name" %>
   <%= f.input :last_name, label: "last name" %>
-  <%= f.input :status, label: "status", collection: ["pending"], default: "pending" %>
-
   <fieldset class="form-group">
     <legend>address</legend>
     <div class="indent20">

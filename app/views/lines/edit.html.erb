@@ -1,5 +1,8 @@
+<%= link_to "back to order", order_path(@order), class: "btn btn-info" %>
+<br/>
+<br/>
 <%= simple_form_for [@order, @line] do |f| %>
-  <%= f.input :product_id, hint: "the current product", label: "product", :collection => @line.possible_products + [@line.product], :as => :select %>
+  <%= f.input :product_id, label: "product", :collection => @line.possible_products + [@line.product], :as => :select, :include_blank => false %>
   <%= f.input :quantity, label: "quantity" %>
-  <%= f.button :submit, value: "add", class: "btn btn-primary" %>
+  <%= f.button :submit, value: "save", class: "btn btn-primary" %>
 <% end %>

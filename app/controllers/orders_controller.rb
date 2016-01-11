@@ -6,8 +6,16 @@ class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
   end
+  
+  def destroy
+    @order = Order.find(params[:id])
+    @order.lines.each { |l| l.destroy }
+    @order.destroy
+    redirect_to :archived_orders
+  end
 
   def index
+    @archived_orders = Order.archived
     @pending_orders = Order.unarchived.where(status: "pending")
     @confirmed_orders = Order.unarchived.where(status: "confirmed")
     @dispatched_orders = Order.unarchived.where(status: "dispatched")

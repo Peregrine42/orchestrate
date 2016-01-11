@@ -13,7 +13,9 @@
 <div>
   <%= link_to "edit order", edit_order_path(@order), class: "btn btn-info" %>
   <%= link_to "add product", new_order_line_path(@order), class: "btn btn-success" %>
-  <%= link_to "show archived", order_archived_lines_path(@order), class: "btn btn-warning" %>
+  <% if @order.archived_lines.length > 0 %>
+    <%= link_to "show archived", order_archived_lines_path(@order), class: "btn btn-warning" %>
+  <% end %>
 </div>
 <hr/>
 <table class="table table-striped table-hover table-bordered">
