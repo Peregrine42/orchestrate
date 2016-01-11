@@ -25,7 +25,11 @@ class LinesController < ApplicationController
     @order = Order.find(params[:order_id])
     @line = Line.find(params[:id])
     @line.destroy
-    redirect_to @order
+    if @line.archived == true
+      redirect_to url_for(@order) + "/archived_lines"
+    else
+      redirect_to @order
+    end
   end
 
   def update
