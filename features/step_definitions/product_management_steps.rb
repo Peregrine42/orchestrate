@@ -18,7 +18,20 @@ When(/^fill out the form with the new stock details$/) do
   select @product.name, from: "product"
 end
 
-Then(/^the '([\w ]+)' stock should be shown in the table$/) do |name|
+Then(/^the '([\w ]+)' stock is shown in the table$/) do |name|
   expect(page.body).to have_content name
   expect(page.body).to have_content 3
+end
+
+When(/^I fill out the form with the new product details$/) do
+  fill_in "name", with: "piano"
+  fill_in "description", with: "a superlative piano!"
+end
+
+Then(/^the new product is shown in the stocks table$/) do
+  expect(page.body).to have_content "piano"
+end
+
+Then(/^the amount is (\d+)$/) do |amount|
+  expect(page.body).to have_content amount
 end

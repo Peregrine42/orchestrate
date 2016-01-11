@@ -11,4 +11,12 @@ Scenario: the store wants to add stock to the inventory
   And I click 'add stock'
   And fill out the form with the new stock details
   And I click 'add stock'
-  Then the 'saxophone' stock should be shown in the table
+  Then the 'saxophone' stock is shown in the table
+  
+Scenario: the store wants to add a new product line
+  When I visit /stocks
+  And I click 'new product line'
+  And I fill out the form with the new product details
+  And I click 'add product'
+  Then the new product is shown in the stocks table
+  And the amount is 0
