@@ -8,9 +8,9 @@ Scenario: the store wants to take an inventory
 Scenario: the store wants to add stock to the inventory
   Given there is a 'saxophone' product in the database
   When I visit /stocks
-  And I click 'add stock'
+  And I click 'add/remove stock'
   And fill out the form with the new stock details
-  And I click 'add stock'
+  And I click 'add/remove stock'
   Then the 'saxophone' stock is shown in the table
   
 Scenario: the store wants to add a new product line

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "orders#index"  
   resources :orders do
     resources :lines
     resources :archived_lines

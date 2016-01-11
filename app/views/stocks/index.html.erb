@@ -1,4 +1,8 @@
-<%= link_to "add stock", new_stock_path, class: "btn btn-primary" %>
+<%= link_to "orders", "orders", class: "btn btn-info" %>
+<hr/>
+<h1>stock</h1>
+<br/>
+<%= link_to "add/remove stock", new_stock_path, class: "btn btn-primary" %>
 <%= link_to "new product line", new_product_path, class: "btn btn-info" %>
 <br/>
 <br/>
@@ -13,9 +17,9 @@
   <tbody>
     <% @stock.each do |s| %>
     <tr>
-      <td><%= s[:details].name %></td>
-      <td><%= s[:details].short_description %></td>
-      <td><%= s[:quantity] %></td>
+      <td><%= link_to s[:details].name, s[:details]%></td>
+      <td><%= link_to s[:details].short_description, s[:details] %></td>
+      <td><%= link_to s[:quantity], s[:details] %></td>
     </tr>
     <% end %>
   </tbody>

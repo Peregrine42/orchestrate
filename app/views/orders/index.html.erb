@@ -1,6 +1,8 @@
+<%= link_to "stock", "/stocks", class: "btn btn-info" %>
 <% if @archived_orders.length > 0 %>
   <%= link_to "archived orders", archived_orders_path, class: "btn btn-warning" %>
 <% end %>
+<hr/>
 <h1>orders</h1>
 <br/>
 <%= link_to "create", new_order_path, class: "btn btn-primary" %>
