@@ -1,0 +1,8 @@
+<%= link_to "back to stock", "/stock", class: "btn btn-info" %>
+<h2>new stock</h2>
+<%= simple_form_for @stock do |f| %>
+  <%= f.input :product_id, label: "product", collection: @products %>
+  <%= f.input :amount, label: "amount" %>
+  <%= f.button :submit, value: "add stock", class: "btn btn-primary" %>
+  <%= link_to "cancel", "/stock", class: "btn btn-info" %>
+<% end %>

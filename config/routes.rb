@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :archived_lines
   end
   resources :archived_orders
-  resources :stock
+  resources :stocks
 end
