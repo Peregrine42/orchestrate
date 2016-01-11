@@ -15,6 +15,10 @@ class Order < ActiveRecord::Base
   def self.archived
     where(archived: true)
   end
+  
+  def self.format_time time
+    time.strftime("%m/%e/%y %H:%M")
+  end
 
   def init
     self.archived ||= false

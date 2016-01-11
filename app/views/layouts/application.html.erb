@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A web app for orchestrating the order of musical instruments">
+  <meta name="author" content="Duncan Fermor">
   <title>Orchestrate</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<hr/>
-<div class="container">
-  <%= yield %>
-</div>
-
+  
+  <hr/>
+  <div class="container">
+    <%= yield %>
+  </div>
+  
+  <hr/>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">© 2015 Orchestrate - by Duncan Fermor</p>
+    </div>
+  </footer>
+  
 </body>
 </html>
