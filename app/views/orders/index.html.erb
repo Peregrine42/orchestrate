@@ -1,12 +1,12 @@
 <%= link_to "create", new_order_path, class: "btn btn-primary" %>
 <% @orders.each do |order_group| %>
   <h2><%= order_group[0].status %></h2>
-  <table class="table table-striped">
+  <table class="table table-striped table-hover table-bordered">
     <tr>
-      <th>order for</th>
-      <th>address...</th>
-      <th>postcode</th>
-      <th>including...</th>
+      <th class="col-md-2">order for</th>
+      <th class="col-md-4">address...</th>
+      <th class="col-md-2">postcode</th>
+      <th class="col-md-4">including...</th>
     </tr>
     <% order_group.each do |order| %>
       <tr>

@@ -11,7 +11,9 @@ class OrdersController < ApplicationController
     @pending_orders = Order.where(status: "pending")
     @confirmed_orders = Order.where(status: "confirmed")
     @dispatched_orders = Order.where(status: "dispatched")
-    @orders = [@pending_orders, @confirmed_orders, @dispatched_orders].compact
+    @orders = [@pending_orders, @confirmed_orders, @dispatched_orders].select do |group|
+      !group.empty?
+    end
   end
 
   def create

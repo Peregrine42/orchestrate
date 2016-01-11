@@ -1,3 +1,5 @@
+<%= link_to "back to orders", "/orders", class: "btn btn-info" %>
+<h2>New Order</h2>
 <%= simple_form_for @order do |f| %>
   <%= f.input :first_name, label: "first name" %>
   <%= f.input :last_name, label: "last name" %>
@@ -12,5 +14,5 @@
       <%= f.input :postcode, label: "postcode" %>
     </div>
   </fieldset>
-  <%= f.button :submit, value: "create order" %>
+  <%= f.button :submit, value: "create order", class: "btn btn-primary" %>
 <% end %>
