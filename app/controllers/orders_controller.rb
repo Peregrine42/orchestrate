@@ -8,9 +8,9 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @pending_orders = Order.where(status: "pending")
-    @confirmed_orders = Order.where(status: "confirmed")
-    @dispatched_orders = Order.where(status: "dispatched")
+    @pending_orders = Order.unarchived.where(status: "pending")
+    @confirmed_orders = Order.unarchived.where(status: "confirmed")
+    @dispatched_orders = Order.unarchived.where(status: "dispatched")
     @orders = [@pending_orders, @confirmed_orders, @dispatched_orders].select do |group|
       !group.empty?
     end
@@ -32,7 +32,11 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      redirect_to @order
+      if @order.archived == true
+        redirect_to :orders
+      else
+        redirect_to @order
+      end
     else
       render :edit
     end
@@ -45,6 +49,7 @@ class OrdersController < ApplicationController
       :last_name,
       :address_line_1, :address_line_2, :address_line_3,
       :postcode,
-      :status)
+      :status,
+      :archived)
   end
 end

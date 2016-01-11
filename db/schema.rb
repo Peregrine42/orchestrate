@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110142626) do
+ActiveRecord::Schema.define(version: 20160111113312) do
 
   create_table "lines", force: true do |t|
     t.datetime "created_at"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160110142626) do
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.string   "address_line_3"
+    t.boolean  "archived"
   end
 
   create_table "products", force: true do |t|

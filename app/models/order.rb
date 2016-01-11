@@ -1,6 +1,16 @@
 class Order < ActiveRecord::Base
   has_many :lines
+  after_initialize :init
+  
+  def self.unarchived
+    where(archived: false)
+  end
 
+  def init
+    self.archived ||= false
+    self.status ||= "pending"
+  end
+  
   def unarchived_lines
     lines.where(archived: false)
   end

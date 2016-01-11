@@ -13,7 +13,7 @@ When /I visit (\/\w+)/ do |address|
   visit address
 end
 
-Then /I see the unfulfilled orders/ do
+Then /I see the orders/ do
   @orders.each do |name|
     expect(page.body).to have_content(name)
   end

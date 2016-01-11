@@ -3,7 +3,7 @@ Given(/^the pending order has a line for a '([\w ]+)'$/) do |product_name|
   Line.create!(product: product, order: @order)
 end
 
-When(/^I click '([\w ]+)' beside '([\w ]+)'$/) do |target, product|
+When(/^I click "([\w ]+)" beside "([\w ']+)"$/) do |target, product|
   click_on target + " " + product
 end
 
