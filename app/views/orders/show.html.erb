@@ -10,6 +10,7 @@
     <%= @order.postcode %>
   </p>
 </div>
+<hr/>
 <div>
   <%= link_to "edit order", edit_order_path(@order), class: "btn btn-info" %>
   <%= link_to "add product", new_order_line_path(@order), class: "btn btn-success" %>
