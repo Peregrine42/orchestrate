@@ -1,3 +1,4 @@
+<%= link_to "all orders", orders_path, class: "btn btn-info" %>
 <h1>archived orders</h1>
 <table class="table table-striped table-hover table-bordered">
   <tr>
@@ -5,7 +6,7 @@
     <th class="col-md-3">address...</th>
     <th class="col-md-2">postcode</th>
     <th class="col-md-3">including...</th>
-    <th class="col-md-2">actions</th>
+    <th class="col-md-2" colspan=2>actions</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
@@ -17,7 +18,12 @@
         <input type="hidden" name="_method" value="patch"/>
         <input type="hidden" name="order[archived]" value="false"/>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-        <input type="submit" value="restore <%= order.name %>'s order" class="btn btn-primary"/>
+        <input type="submit" value="restore" class="btn btn-primary"/>
+      </form></td>
+      <td><form action="<%= order_path(order) %>" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+        <input type="submit" value="delete <%= order.name %>'s order" class="btn btn-danger"/>
       </form></td>
     </tr>
   <% end %>

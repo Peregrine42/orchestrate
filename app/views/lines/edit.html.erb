@@ -1,5 +1,5 @@
 <%= simple_form_for [@order, @line] do |f| %>
   <%= f.input :product_id, hint: "the current product", label: "product", :collection => @line.possible_products + [@line.product], :as => :select %>
   <%= f.input :quantity, label: "quantity" %>
-  <%= f.button :submit, value: "add" %>
+  <%= f.button :submit, value: "add", class: "btn btn-primary" %>
 <% end %>
