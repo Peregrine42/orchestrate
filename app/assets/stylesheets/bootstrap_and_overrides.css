@@ -49,10 +49,24 @@ questions/30234986/watermark-background-images-in-div
 h1 {
   font-size: 40px;
   color: #e4e4ee;
+  background-color: #2c2d40;
+  border-radius: 5px;
+  border-top-left-radius: 20px;
+  padding: 3px;
+  padding-left: 12px;
+  padding-bottom: 12px;
 }
 
 h2 {
   font-size: 30px;
+  color: #e4e4ee;
+}
+
+h3 {
+  color: #e4e4ee;
+}
+
+p {
   color: #e4e4ee;
 }
 
@@ -62,6 +76,10 @@ label {
 
 .help-block {
   color: #93939d;
+}
+
+legend {
+  color: #e4e4ee;
 }
 
 hr { 
@@ -104,4 +122,15 @@ th {
 
 body {
   background-color: #424359;
+}
+
+.btn-primary, .btn-warning, .btn-success, .btn-info {
+  font-size: 20px;
+}
+
+.btn-small {
+  font-size: 16px;
+  padding: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }

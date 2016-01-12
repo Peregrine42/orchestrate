@@ -32,13 +32,13 @@
     <tr>
       <td><%= line.product.name %></td>
       <td><%= line.quantity %></td>
-      <td><%= link_to "edit", edit_order_line_path(@order, line), class: "btn btn-info" %></td>
+      <td><%= link_to "edit", edit_order_line_path(@order, line), class: "btn btn-info btn-small" %></td>
       <td>
         <form action="<%= order_line_path(@order, line) %>" method="post">
           <input type="hidden" name="_method" value="patch"/>
           <input type="hidden" name="line[archived]" value="true"/>
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-          <input type="submit" value="archive <%= line.name %>" class="btn btn-danger"/>
+          <input type="submit" value="archive <%= line.name %>" class="btn btn-danger btn-small"/>
         </form>
       </td>
     </tr>
