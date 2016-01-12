@@ -72,13 +72,34 @@ hr {
 }
 
 table {
-  border-color: #7779a6;
   border-width: 1px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+td {
+  overflow:hidden; 
+  white-space:nowrap
 }
 
 th {
   border: 0px;
-  background-color: rgb(66, 139, 202);
+  background-color: #418ac9;
+}
+
+.table-bordered>thead>tr>th, 
+.table-bordered>tbody>tr>th, 
+.table-bordered>tfoot>tr>th, 
+.table-bordered>thead>tr>td, 
+.table-bordered>tbody>tr>td, 
+.table-bordered>tfoot>tr>td {
+  border: 1px solid #b5cde2;
+}
+
+.table-bordered>thead>tr>th, 
+.table-bordered>tbody>tr>th, 
+.table-bordered>tfoot>tr>th {
+  border: 0px;
 }
 
 body {
