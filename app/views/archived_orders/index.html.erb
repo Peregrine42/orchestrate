@@ -18,12 +18,12 @@
         <input type="hidden" name="_method" value="patch"/>
         <input type="hidden" name="order[archived]" value="false"/>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-        <input type="submit" value="restore" class="btn btn-primary"/>
+        <input type="submit" value="restore" class="btn btn-primary btn-small"/>
       </form></td>
       <td><form action="<%= order_path(order) %>" method="post">
         <input type="hidden" name="_method" value="delete"/>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-        <input type="submit" value="delete <%= order.name %>'s order" class="btn btn-danger"/>
+        <input type="submit" value="delete <%= order.name %>'s order" class="btn btn-danger btn-small"/>
       </form></td>
     </tr>
   <% end %>
