@@ -2,6 +2,12 @@ class Product < ActiveRecord::Base
   has_many :lines
   has_many :stocks
   
+  def self.in_stock
+    all.select { |p|
+      p.stock_level > 0
+    }
+  end
+  
   def unarchived_lines
     lines.where(archived: false)
   end
@@ -19,4 +25,5 @@ class Product < ActiveRecord::Base
       .inject(0, &:+)
     total_stocked - total_ordered
   end
+  
 end
