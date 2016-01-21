@@ -2,11 +2,13 @@ class Order < ActiveRecord::Base
   has_many :lines
   after_initialize :init
   
+  validates_with StatusValidator
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :status, presence: true
   validates :address_line_1, presence: true
   validates :postcode, presence: true
+  
   
   def self.unarchived
     where(archived: false).order(created_at: :desc)
@@ -47,9 +49,14 @@ class Order < ActiveRecord::Base
     including_line.length > 15 ? including_line[0..15] + "..." : including_line
   end
 
-  def available_statuses
-    return ["confirmed", "dispatched"] if status == "confirmed"
-    return ["pending", "confirmed"] if status == "pending"
+  def available_statuses status_override=nil
+    if status_override != nil
+      current_status = status_override
+    else
+      current_status = status
+    end
+    return ["confirmed", "dispatched"] if current_status == "confirmed"
+    return ["pending", "confirmed"] if current_status == "pending"
     return ["pending"]
   end
 end
