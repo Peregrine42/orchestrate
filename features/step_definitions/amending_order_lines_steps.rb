@@ -1,5 +1,6 @@
 Given(/^the pending order has a line for a '([\w ]+)'$/) do |product_name|
   product = Product.create!(name: product_name)
+  stock = Stock.create!(product: product, amount: 1)
   Line.create!(product: product, order: @order, quantity: 1)
 end
 

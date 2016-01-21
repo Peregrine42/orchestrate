@@ -19,6 +19,7 @@ end
 
 When(/^I select '([\w ]+)'$/) do |product|
   select product, from: "product"
+  fill_in "quantity", with: 2
 end
 
 Then(/^the '([\w ]+)' appears on the order$/) do |product|

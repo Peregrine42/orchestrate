@@ -11,25 +11,25 @@
   </thead>
   <tbody>
     <% @lines.each do |line| %>
-    <tr>
-      <td><%= line.product.name %></td>
-      <td><%= line.quantity %></td>
-      <td>
-        <form action="<%= order_line_path(@order, line) %>" method="post">
-          <input type="hidden" name="_method" value="patch"/>
-          <input type="hidden" name="line[archived]" value="false"/>
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-          <input type="submit" value="restore <%= line.name %>" class="btn btn-primary"/>
-        </form>
-      </td>
-      <td>
-        <form action="<%= order_line_path(@order, line) %>" method="post">
-          <input type="hidden" name="_method" value="delete"/>
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-          <input type="submit" value="permanently delete <%= line.name %>" class="btn btn-danger"/>
-        </form>
-      </td>
-    </tr>
+      <tr>
+        <td><%= line.product.name %></td>
+        <td><%= line.quantity %></td>
+        <td>
+          <form action="<%= order_line_path(@order, line) %>" method="post">
+            <input type="hidden" name="_method" value="patch"/>
+            <input type="hidden" name="line[archived]" value="false"/>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+            <input type="submit" value="restore <%= line.name %>" class="btn btn-primary btn-small"/>
+          </form>
+        </td>
+        <td>
+          <form action="<%= order_line_path(@order, line) %>" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+            <input type="submit" value="permanently delete <%= line.name %>" class="btn btn-danger btn-small"/>
+          </form>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
