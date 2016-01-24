@@ -1,6 +1,8 @@
 Given /^there is stock in the database$/ do
-  @product = Product.create! name: "saxophone"
-  @undesired_product = Product.create! name: "bagpipes"
+  @product = Product.create! name: "saxophone", description: "foo", price: 1
+  @undesired_product = Product.create!(
+    name: "bagpipes", description: "foo", price: 1
+  )
   @target_stock = Stock.create! amount: 3, product: @product
   @other_stock =  Stock.create! amount: 4, product: @undesired_product
 end

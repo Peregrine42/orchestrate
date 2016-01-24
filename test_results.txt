@@ -1,0 +1,96 @@
+/home/xxxxx/.rbenv/versions/2.1.5/bin/ruby -I/home/xxxxx/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/rspec-core-3.4.1/lib:/home/xxxxx/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/rspec-support-3.4.1/lib /home/xxxxx/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/rspec-core-3.4.1/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb
+.
+
+Finished in 0.00859 seconds (files took 0.81001 seconds to load)
+1 example, 0 failures
+
+/home/xxxxx/.rbenv/versions/2.1.5/bin/ruby -S bundle exec cucumber  --profile default
+Using the default profile...
+Feature: a customer has changed their mind, their pending order must be amended
+
+  Scenario: deleting an order line                              # features/amending_order_lines.feature:3
+    Given there is a pending order in the database              # features/step_definitions/updating_an_order_steps.rb:1
+    And the pending order has a line for a 'saxophone'          # features/step_definitions/amending_order_lines_steps.rb:1
+    When I visit the show page for that order                   # features/step_definitions/updating_an_order_steps.rb:7
+    And I click "archive" beside "saxophone"                    # features/step_definitions/amending_order_lines_steps.rb:7
+    Then the 'saxophone' no longer appears on the pending order # features/step_definitions/amending_order_lines_steps.rb:11
+
+Feature: archiving an order
+
+  Scenario: an order is cancelled by the customer                   # features/archiving_an_order.feature:3
+    Given there is a pending order for 'Joe Bloggs' in the database # features/step_definitions/archiving_orders_steps.rb:1
+    When I visit /orders                                            # features/step_definitions/show_orders_steps.rb:15
+    And I click "archive" beside "Joe Bloggs's order"               # features/step_definitions/amending_order_lines_steps.rb:7
+    Then I no longer see 'Joe Bloggs' at /orders                    # features/step_definitions/archiving_orders_steps.rb:12
+
+  Scenario: an accidentally cancelled order must be restored          # features/archiving_an_order.feature:9
+    Given there is an archived order for 'Joe Bloggs' in the database # features/step_definitions/archiving_orders_steps.rb:17
+    When I visit /archived_orders                                     # features/step_definitions/show_orders_steps.rb:15
+    And I click 'restore'                                             # features/step_definitions/creating_orders_steps.rb:10
+    Then I see "Joe Bloggs" at /orders                                # features/step_definitions/archiving_orders_steps.rb:29
+
+Feature: creating a new order
+
+  Scenario: a salesperson wants to take an order from a customer # features/creating_a_new_order.feature:3
+    Given there is stock in the database                         # features/step_definitions/creating_orders_steps.rb:1
+    And I visit /orders                                          # features/step_definitions/show_orders_steps.rb:15
+    When I click 'create'                                        # features/step_definitions/creating_orders_steps.rb:10
+    And I fill out the details of the order                      # features/step_definitions/creating_orders_steps.rb:14
+    And I click 'add product'                                    # features/step_definitions/creating_orders_steps.rb:10
+    And I select 'saxophone'                                     # features/step_definitions/creating_orders_steps.rb:22
+    And I click 'add'                                            # features/step_definitions/creating_orders_steps.rb:10
+    Then the 'saxophone' appears on the order                    # features/step_definitions/creating_orders_steps.rb:27
+
+Feature: product management
+
+  Scenario: the store wants to take an inventory                           # features/product_management.feature:3
+    Given there are several identical 'saxophone' products in the database # features/step_definitions/product_management_steps.rb:1
+    When I visit /stocks                                                   # features/step_definitions/show_orders_steps.rb:15
+    Then there is one line representing all the 'saxophone' products       # features/step_definitions/product_management_steps.rb:10
+
+  Scenario: the store wants to add stock to the inventory # features/product_management.feature:8
+    Given there is a 'saxophone' product in the database  # features/step_definitions/product_management_steps.rb:14
+    When I visit /stocks                                  # features/step_definitions/show_orders_steps.rb:15
+    And I click 'add/remove stock'                        # features/step_definitions/creating_orders_steps.rb:10
+    And fill out the form with the new stock details      # features/step_definitions/product_management_steps.rb:20
+    And I click 'add/remove stock'                        # features/step_definitions/creating_orders_steps.rb:10
+    Then the 'saxophone' stock is shown in the table      # features/step_definitions/product_management_steps.rb:25
+
+  Scenario: the store wants to add a new product line    # features/product_management.feature:16
+    When I visit /stocks                                 # features/step_definitions/show_orders_steps.rb:15
+    And I click 'new product line'                       # features/step_definitions/creating_orders_steps.rb:10
+    And I fill out the form with the new product details # features/step_definitions/product_management_steps.rb:30
+    And I click 'add product'                            # features/step_definitions/creating_orders_steps.rb:10
+    Then the new product is shown in the stocks table    # features/step_definitions/product_management_steps.rb:36
+    And the amount is 0                                  # features/step_definitions/product_management_steps.rb:40
+
+Feature: showing the list of orders
+
+  Scenario: the warehouse staff want to see the orders they must fulfil # features/showing_the_list_of_orders.feature:3
+    Given there are pending orders in the database                      # features/step_definitions/show_orders_steps.rb:1
+    When I visit /orders                                                # features/step_definitions/show_orders_steps.rb:15
+    Then I see the orders                                               # features/step_definitions/show_orders_steps.rb:19
+
+Feature: updating an order
+
+  Scenario: a member of staff wants to change the status of an order # features/updating_an_order.feature:3
+    Given there is a pending order in the database                   # features/step_definitions/updating_an_order_steps.rb:1
+    When I visit the show page for that order                        # features/step_definitions/updating_an_order_steps.rb:7
+    And I click 'edit order'                                         # features/step_definitions/creating_orders_steps.rb:10
+    And set the 'status' to 'confirmed'                              # features/step_definitions/updating_an_order_steps.rb:11
+    And I click 'update'                                             # features/step_definitions/creating_orders_steps.rb:10
+    Then the order status is confirmed                               # features/step_definitions/updating_an_order_steps.rb:15
+
+Feature: restoring an archived order line
+
+  Scenario: a shop assistant makes a mistake, deleting the wrong order line # features/viewing_archived_order_lines.feature:3
+    Given there is a pending order in the database                          # features/step_definitions/updating_an_order_steps.rb:1
+    And the pending order has an archived line for a 'saxophone'            # features/step_definitions/viewing_archived_lines_steps.rb:1
+    When I visit the show page for that order                               # features/step_definitions/updating_an_order_steps.rb:7
+    And I click 'show archived'                                             # features/step_definitions/creating_orders_steps.rb:10
+    And I click 'restore'                                                   # features/step_definitions/creating_orders_steps.rb:10
+    Then the 'saxophone' appears on the order                               # features/step_definitions/creating_orders_steps.rb:27
+
+10 scenarios (10 passed)
+51 steps (51 passed)
+0m0.446s
