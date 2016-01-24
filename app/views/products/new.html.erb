@@ -2,6 +2,7 @@
 <h2>new product line</h2>
 <%= simple_form_for @product do |f| %>
   <%= f.input :name, label: "name" %>
+  <%= f.input :price, label: "price" %>
   <%= f.input :description, label: "description" %>
   <%= f.button :submit, value: "add product", class: "btn btn-primary" %>
   <%= link_to "cancel", "/stocks", class: "btn btn-info" %>

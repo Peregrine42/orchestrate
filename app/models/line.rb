@@ -1,10 +1,10 @@
 class Line < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
-  
+
   validates :product_id, presence: true
   validates(:quantity, presence: true, numericality: { only_integer: true })
-  
+
   validates_with InStockValidator
 
   after_initialize :init
@@ -20,5 +20,13 @@ class Line < ActiveRecord::Base
 
   def name
     product.name
+  end
+
+  def total_price
+    product.price * quantity
+  end
+
+  def formatted_price
+    "#{product.price} (#{total_price})"
   end
 end

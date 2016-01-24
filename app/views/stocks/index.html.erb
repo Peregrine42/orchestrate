@@ -10,8 +10,9 @@
   <thead>
     <tr>
       <th class="col-md-4">name</th>
-      <th class="col-md-6">description</th>
+      <th class="col-md-4">description</th>
       <th class="col-md-2">quantity</th>
+      <th class="col-md-2">price</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
       <td><%= link_to s[:details].name, s[:details]%></td>
       <td><%= link_to s[:details].short_description, s[:details] %></td>
       <td><%= link_to s[:quantity], s[:details] %></td>
+      <td><%= link_to s[:details].price, s[:details] %></td>
     </tr>
     <% end %>
   </tbody>

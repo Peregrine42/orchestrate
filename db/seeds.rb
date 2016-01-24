@@ -29,12 +29,24 @@ Order.create(
   status: "dispatched"
 )
 
-Product.create(
+sax = Product.create(
   name: "saxophone",
-  description: "an amazing saxophone!"
+  description: "an amazing saxophone!",
+  price: "599.99"
 )
 
-Product.create(
+guitar = Product.create(
   name: "electric guitar",
-  description: "an incredible electric guitar!"
+  description: "an incredible electric guitar!",
+  price: "59.99"
+)
+
+Stock.create(
+  amount: 52,
+  product: sax
+)
+
+Stock.create(
+  amount: 21,
+  product: guitar
 )

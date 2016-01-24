@@ -12,9 +12,9 @@
   line-height: 1.428
 }
 
-/* 
+/*
 http://stackoverflow.com/questions/18585575/
-bootstrap-classes-to-indent-sub-fields-in-a-form 
+bootstrap-classes-to-indent-sub-fields-in-a-form
 */
 .indent20 {
   margin-left: 20px;
@@ -30,7 +30,7 @@ questions/30234986/watermark-background-images-in-div
   display: block;
   position: fixed;
   background:url(trumpet-rotated.png);
-  z-index: -1; 
+  z-index: -1;
   bottom: 0;
   right: -30px;
   opacity: 0.2;
@@ -82,8 +82,8 @@ legend {
   color: #e4e4ee;
 }
 
-hr { 
-  height: 1px; 
+hr {
+  height: 1px;
   background: #7779a6;
   color: #7779a6;
   border-top: 0px;
@@ -96,7 +96,7 @@ table {
 }
 
 td {
-  overflow:hidden; 
+  overflow:hidden;
   white-space:nowrap
 }
 
@@ -105,17 +105,17 @@ th {
   background-color: #418ac9;
 }
 
-.table-bordered>thead>tr>th, 
-.table-bordered>tbody>tr>th, 
-.table-bordered>tfoot>tr>th, 
-.table-bordered>thead>tr>td, 
-.table-bordered>tbody>tr>td, 
+.table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>th,
+.table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>tbody>tr>td,
 .table-bordered>tfoot>tr>td {
   border: 1px solid #b5cde2;
 }
 
-.table-bordered>thead>tr>th, 
-.table-bordered>tbody>tr>th, 
+.table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>th,
 .table-bordered>tfoot>tr>th {
   border: 0px;
 }
